@@ -1,6 +1,7 @@
-from python import data_helper, distance
 import random
-import numpy as np
+
+import data_helper
+import distance
 
 """Given the inputs x1,x2,x3,…,xn and value of K
 
@@ -37,59 +38,49 @@ def find_clusters(data, centroids, function_dist=distance.euclidean):
     return clusters
 
 
+def mean(points):
+    ncols = len(points[0])
+    m = [0] * ncols
+    for col in range(ncols):
+        for p in points:
+            m[col] += p[col]
+        m[col] = m[col] / len(points)
+
+    return m
+
+
 def calculate_centroids(data, k, clusters):
     centroids = [0] * k
     for c in range(k):
         points = [data[j] for j in range(len(data)) if clusters[j] == c]
-        centroids[c] = np.mean(points, axis=0).tolist()
+        centroids[c] = mean(points)
     return centroids
 
 
 def centroids_changed(prev_centroids, new_centroids):
-    c1 = [item for sublist in prev_centroids for item in sublist]
-    c2 = [item for sublist in new_centroids for item in sublist]
-    return c1 != c2
+    for i in range(len(prev_centroids)):
+        for z1, z2 in zip(prev_centroids[i], new_centroids[i]):
+            if z1 != z2:
+                return True
+    return False
 
 
 def main():
     data = data_helper.toy_dataset()
     k = 3
-    prev_centroids = _initial_centroids(k, data)
-    new_centroids = [[-1] * len(data[0])] * k
+    prev_centroids = [[-1] * len(data[0])] * k
+    new_centroids = _initial_centroids(k, data)
 
-    # TODO - stop condition of the main loop
     while centroids_changed(prev_centroids, new_centroids):
-        clusters = find_clusters(data, prev_centroids)
+        clusters = find_clusters(data, new_centroids)
+        prev_centroids = new_centroids
         new_centroids = calculate_centroids(data, k, clusters)
+        print(new_centroids)
 
+    print("\nfinal centroids:")
     print(new_centroids)
 
 
 if __name__ == '__main__':
     main()
 
-
-
-
-
-# def _closest_centroid(idx, data, centroids, function_dist=distance.euclidean):
-#     """Gets the index of the closest centroid to the given instance
-#
-#     :param idx: the instance index
-#     :param data: the dataset of instances
-#     :param centroids: the centroid vectors with the same structure as the instances in the dataset
-#     :return: the index of the closest centroid
-#     """
-#     dist = []
-#     ncol = len(data[0])
-#     for c in centroids:
-#         dist.append(function_dist(data[idx], c, ncol))
-#     return dist.index(min(dist))
-
-# def calculate_centroids(data, map):
-#     centroids = []
-#     for entry in map.items():
-#         inst_indexes = entry.value
-#         cluster_size = len(inst_indexes)
-#         cluster = [data[i] for i in inst_indexes]
-#         centroids.append()
