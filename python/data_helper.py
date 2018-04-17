@@ -17,6 +17,8 @@ def load_dataset(filename, split=0.5):
         ncol = len(dataset[0])
         nlin = len(dataset)
         for line in range(nlin):
+            if len(dataset[line]) == 0:
+                continue
             for col in range(ncol - 1):
                 dataset[line][col] = float(dataset[line][col])
             if random.random() < split:
