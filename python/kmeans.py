@@ -1,3 +1,4 @@
+import pprint as pp
 import random
 
 import data_helper
@@ -65,21 +66,29 @@ def centroids_changed(prev_centroids, new_centroids):
     return False
 
 
+def report(data, new_centroids, clusters):
+    print("\nCentroids:")
+    print(new_centroids)
+    print("clusters: [Clusters | instance]")
+    map = {c: [] for c in set(clusters)}
+    for e in range(len(data)):
+        map.get(clusters[e]).append(data[e])
+    pp.pprint(map)
+
+
 def main():
-    data = data_helper.toy_dataset()
+    data = data_helper.toy_unlabeled_dataset
     k = 3
+    clusters = [0] * len(data[0])
     prev_centroids = [[-1] * len(data[0])] * k
     new_centroids = _initial_centroids(k, data)
-
     while centroids_changed(prev_centroids, new_centroids):
         clusters = find_clusters(data, new_centroids)
         prev_centroids = new_centroids
         new_centroids = calculate_centroids(data, k, clusters)
-        print(new_centroids)
+        # print(new_centroids)
 
-    print("\nfinal centroids:")
-    print(new_centroids)
-
+    report(data, new_centroids, clusters)
 
 if __name__ == '__main__':
     main()
