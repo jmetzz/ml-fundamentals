@@ -1,5 +1,4 @@
-import pprint as pp
-
+import data_helper
 
 def gini_index(groups, classes):
     """Calculate the Gini index for a split dataset.
@@ -42,9 +41,9 @@ def split_on_attribute(index, value, dataset):
         value: the split point of this attribute
         dataset: the list of instances the represent the dataset
 
-    Returns: A tuple with the lists of instances according to the splii,
+    Returns: A tuple with the lists of instances according to the split,
         where left list has instances for which the value of the given attribute
-        is less than spli value, and the right list contains the other instances
+        is less than split value, and the right list contains the other instances
     """
     left, right = list(), list()
     for row in dataset:
@@ -182,16 +181,6 @@ def predict(node, row):
             return node['right']
 
 
-dataset = [[2.771244718, 1.784783929, 0],
-           [1.728571309, 1.169761413, 0],
-           [3.678319846, 2.81281357, 0],
-           [3.961043357, 2.61995032, 0],
-           [2.999208922, 2.209014212, 0],
-           [7.497545867, 3.162953546, 1],
-           [9.00220326, 3.339047188, 1],
-           [7.444542326, 0.476683375, 1],
-           [10.12493903, 3.234550982, 1],
-           [6.642287351, 3.319983761, 1]]
 
 # test Gini values
 #   two groups of data with 2 rows in each group
@@ -212,7 +201,7 @@ dataset = [[2.771244718, 1.784783929, 0],
 # best_split = select_split(dataset)
 # print('Split: [X%d < %.3f]' % ((best_split['index']+1), best_split['value']))
 
-tree = build_tree(dataset, 4, 1)
+tree = build_tree(data_helper.toy_labeled_dataset, 4, 1)
 # print_tree(tree)
 
 
