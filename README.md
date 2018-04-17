@@ -23,12 +23,13 @@ the most powerful algorithms are built upon. Therefore, let's shed some light up
 a few of the fundamental machine learning algorithms, and hopefully be able to grasp the basics to help us understand
 the more advanced techniques and algorithms later on. Let's start with non-supervised and supervised learning, such as:
 
-  - K-means and Hierarchical clustering;
+  - K-means
   - K-nearest neighbour (KNN);
-  - Confusion matrix and basic evaluation metrics
+  - Naive Bayes;
+  - Logistic Regression;
   - CART (Gini index and entropy based); 
-  - Nayve-bayes; and
-  - Perceptron and Feedforward Multi-layer Perceptron (MLP).
+  - Perceptron and Feedforward Multi-layer Perceptron (MLP); and
+  - Confusion matrix and basic evaluation metrics
   
   
 ## Data
@@ -48,6 +49,7 @@ I intend to add some content in the future, which will possibly conver the follo
   
   - More algorithm's evaluation metrics;
   - Experiment's setup and execution;
+  - Hierarchical clustering;
   - Improvements on Decision Trees;
   - Back-propagation Multi-layer Perceptron;
   - Genetic Algorithms;
