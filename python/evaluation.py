@@ -4,3 +4,4 @@ def accuracy(test_set, predictions):
         if test_set[x][-1] == predictions[x]:
             correct += 1
     return (correct / float(len(test_set))) * 100.0
+
