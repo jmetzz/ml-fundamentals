@@ -24,6 +24,7 @@ a few of the fundamental machine learning algorithms, and hopefully be able to g
 the more advanced techniques and algorithms later on. Let's start with non-supervised and supervised learning, such as:
 
   - K-means
+  - Hierarchical clustering (Single Linkage)
   - K-nearest neighbour (KNN);
   - Naive Bayes;
   - Logistic Regression;
@@ -49,7 +50,7 @@ I intend to add some content in the future, which will possibly conver the follo
   
   - More algorithm's evaluation metrics;
   - Experiment's setup and execution;
-  - Hierarchical clustering;
+  - More Hierarchical clustering (Complete Linkage, Ward ...);
   - Improvements on Decision Trees;
   - Back-propagation Multi-layer Perceptron;
   - Genetic Algorithms;
