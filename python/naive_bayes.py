@@ -15,14 +15,11 @@
 import pprint as pp
 from collections import Counter
 
-import evaluation
+import python.evaluation as evaluation
 
 
-def get_class_values(dataset):
-    return list(set(row[-1] for row in dataset))
 
-    """
-    Naive Bayes Classifier method:
+""" Naive Bayes Classifier method:
     It is trained with a 2D-array X (dimensions m,n) and a 1D array Y (dimension 1,n).
     X should have one column per feature (total n) and one row per training example (total m).
     After training a hash table is filled with the class probabilities per feature.
@@ -42,7 +39,11 @@ def get_class_values(dataset):
             'featuren': []
         }
     }
-    """
+"""
+
+
+def get_class_values(dataset):
+    return list(set(row[-1] for row in dataset))
 
 
 def relative_occurrence(values):
