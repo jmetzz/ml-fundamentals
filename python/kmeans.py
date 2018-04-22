@@ -51,7 +51,7 @@ def mean(points):
 
 
 def calculate_centroids(data, k, clusters):
-    centroids = [0] * k
+    centroids = [0.0] * k
     for c in range(k):
         points = [data[j] for j in range(len(data)) if clusters[j] == c]
         centroids[c] = mean(points)
