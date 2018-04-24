@@ -1,4 +1,4 @@
-##Preamble
+## Preamble
  
 This repository contains the code used in *JArchitect's Tech Day* team event (April/2018).
 Here you will find simple raw implementation of some well known **fundamental** machine learning algorithms,
