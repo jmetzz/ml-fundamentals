@@ -8,9 +8,11 @@ def step(x):
 def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
+
 def hypertang(x):
     exp = math.exp(2 * x)
     return (exp - 1) / (exp + 1)
+
 
 class Perceptron:
 
@@ -49,7 +51,7 @@ class SingleLayerPerceptron:
                 sum_error += (error) ** 2
                 for i in range(self.dimension):
                     weights[i + 1] += self.eta * error * x[i]
-            print('>epoch=%d, lrate=%.3f, error=%.3f' % (e, self.eta, sum_error))
+            print('>epoch=%d, learning rate=%.3f, error=%.3f' % (e, self.eta, sum_error))
         return weights
 
 
@@ -67,11 +69,11 @@ dataset = [[2.7810836, 2.550537003, 0],
 
 
 def main():
-    p = Perceptron()
+    neuron = Perceptron()
     # The values of bias and weights are typically set randomly and then updated using gradient descent
     w = [-0.1, 0.20653640140000007, -0.23418117710000003]
     for row in dataset:
-        prediction = p.predict(row, w)
+        prediction = neuron.predict(row, w)
         print("Expected=%d, Predicted=%d" % (row[-1], prediction))
 
     print("-----------------------------")

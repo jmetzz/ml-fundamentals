@@ -1,8 +1,8 @@
 import pprint as pp
 import random
 
-import data_helper
-import distance
+import python.data_helper as data_helper
+import python.distance as distance
 
 """Given the inputs x1,x2,x3,…,xn and value of K
 

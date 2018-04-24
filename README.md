@@ -46,14 +46,16 @@ even randomly generated for that specific scenario.
 
   
 ## Future
-I intend to add some content in the future, which will possibly conver the following topics:
+I intend to add some content in the future, which will possibly cover the following topics:
   
   - More algorithm's evaluation metrics;
   - Experiment's setup and execution;
   - More Hierarchical clustering (Complete Linkage, Ward ...);
+  - Expectation-maximization;
   - Improvements on Decision Trees;
   - Back-propagation Multi-layer Perceptron;
   - Genetic Algorithms;
+  - Ensemble Methods (AdaBoost and alike);
   - Support Vector Machines; and
   - Deep Learning.
 
