@@ -1,3 +1,5 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 ## Preamble
  
 This repository contains the code used in *JArchitect's Tech Day* team event (April/2018).
