@@ -1,9 +1,7 @@
+from python import data_helper
+from python import distance
+from python import evaluation
 import operator
-
-# from python \
-import data_helper
-import distance
-import evaluation
 
 
 def find_neighbors(training_set, test_instance, k):

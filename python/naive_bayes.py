@@ -1,3 +1,7 @@
+from python import evaluation
+from collections import Counter
+import pprint as pp
+
 """Naive-Bayes algorithm implementation
 
     This algorithm follows the statistical (Bayesian) approach.
@@ -11,34 +15,27 @@
 	where P(x_i | C)  is the conditional probability that feature i belongs to class C.
 
 	This probability can simply be calculated by the relative values of feature i per class.
-"""
-import pprint as pp
-from collections import Counter
 
-import python.evaluation as evaluation
+    Naive Bayes Classifier method:
+        It is trained with a 2D-array X (dimensions m,n) and a 1D array Y (dimension 1,n).
+        X should have one column per feature (total n) and one row per training example (total m).
+        After training a hash table is filled with the class probabilities per feature.
+        We start with an empty hash table nb_dict, which has the form:
 
-
-
-""" Naive Bayes Classifier method:
-    It is trained with a 2D-array X (dimensions m,n) and a 1D array Y (dimension 1,n).
-    X should have one column per feature (total n) and one row per training example (total m).
-    After training a hash table is filled with the class probabilities per feature.
-    We start with an empty hash table nb_dict, which has the form:
-
-    nb_dict = {
-        'class1': {
-            'feature1': [],
-            'feature2': [],
-            (...)
-            'featuren': []
+        nb_dict = {
+            'class1': {
+                'feature1': [],
+                'feature2': [],
+                (...)
+                'featuren': []
+            }
+            'class2': {
+                'feature1': [],
+                'feature2': [],
+                (...)
+                'featuren': []
+            }
         }
-        'class2': {
-            'feature1': [],
-            'feature2': [],
-            (...)
-            'featuren': []
-        }
-    }
 """
 
 

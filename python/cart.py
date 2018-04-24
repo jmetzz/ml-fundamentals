@@ -1,4 +1,5 @@
-import data_helper
+from python import data_helper
+
 
 def gini_index(groups, classes):
     """Calculate the Gini index for a split dataset.
@@ -61,7 +62,7 @@ def get_class_values(dataset):
 
 def select_split(dataset):
     """Select the best split according to Gini Index
-  
+
     Args: the dataset
 
     Returns: a tuple containing
@@ -181,7 +182,6 @@ def predict(node, row):
             return node['right']
 
 
-
 # test Gini values
 #   two groups of data with 2 rows in each group
 #   Each group contains instances for which the last attribute represents the class
@@ -197,12 +197,12 @@ def predict(node, row):
 # print("\nRight:")
 # pp.pprint(r)
 
-# test select split 
+# test select split
 # best_split = select_split(dataset)
 # print('Split: [X%d < %.3f]' % ((best_split['index']+1), best_split['value']))
 
 tree = build_tree(data_helper.toy_labeled_dataset, 4, 1)
-# print_tree(tree)
+print_tree(tree)
 
 
 stump = {'index': 0, 'right': 1, 'value': 6.642287351, 'left': 0}
