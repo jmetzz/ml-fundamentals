@@ -1,5 +1,3 @@
-[[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
-
 ## Preamble
  
 This repository contains the code used in *JArchitect's Tech Day* team event (April/2018).
@@ -60,13 +58,3 @@ I intend to add some content in the future, which will possibly cover the follow
   - Ensemble Methods (AdaBoost and alike);
   - Support Vector Machines; and
   - Deep Learning.
-
-
-
-* LICENSE
-- [[https://www.gnu.org/licenses/gpl-3.0.en.html][GNU General Public License v3]]
-#+BEGIN_SRC text
-GNU General Public License v3
-Copyright (c) 2018 Jean Metz
-#+END_SRC
-
