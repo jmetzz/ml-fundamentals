@@ -1,7 +1,7 @@
 import csv
 import random
 
-def load_dataset(filename, split=0.5):
+def load_train_test_datasets(filename, split=0.5):
     """Retrieve the training and test randomly split of the dataset
     based on the given split value
 
@@ -26,6 +26,18 @@ def load_dataset(filename, split=0.5):
             else:
                 test_set.append(dataset[line])
     return training_set, test_set
+
+
+def load_dataset(filename):
+    """Loads the dataset from a file
+
+    :param filename: full path to the file containing the data
+    :return: a list of instances in the dataset
+    """
+    with open(filename, 'rt') as csvfile:
+        lines = csv.reader(csvfile)
+        dataset = list(lines)
+    return dataset
 
 
 toy_labeled_dataset = [[2.771244718, 1.784783929, 0],

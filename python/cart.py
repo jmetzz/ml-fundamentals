@@ -1,3 +1,4 @@
+import pprint as pp
 from python import data_helper
 
 
@@ -202,9 +203,26 @@ def predict(node, row):
 # print('Split: [X%d < %.3f]' % ((best_split['index']+1), best_split['value']))
 
 tree = build_tree(data_helper.toy_labeled_dataset, 4, 1)
-print_tree(tree)
 
+
+
+print("-"  * len("Testing"))
+print("Testing")
+print("-"  * len("Testing"))
 
 stump = {'index': 0, 'right': 1, 'value': 6.642287351, 'left': 0}
-print(predict(stump, [2.771244718, 1.784783929, 0]))
-print(predict(tree, [2.771244718, 1.784783929, 0]))
+print("Mock tree:")
+pp.pprint(stump)
+print("\n\tprediction: {}".format(predict(stump, [2.771244718, 1.784783929, 0])))
+
+
+
+print("Trained tree:")
+pp.pprint(tree)
+print("\n\tprediction: {}".format(predict(tree, [2.771244718, 1.784783929, 0])))
+
+# print("\n")
+# print("-"  * len("Simplified"))
+# print("Simplified")
+# print("-"  * len("Simplified"))
+# print_tree(tree)

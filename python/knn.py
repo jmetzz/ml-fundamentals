@@ -35,7 +35,7 @@ def main():
     dataset_path = r'../dataset/iris.data'
 
     # prepare data
-    training_set, test_set = data_helper.load_dataset(dataset_path, split)
+    training_set, test_set = data_helper.load_train_test_datasets(dataset_path, split)
     # print('Train set: ' + repr(len(training_set)))
     # print('Test set: ' + repr(len(test_set)))
 
