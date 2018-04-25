@@ -18,10 +18,10 @@ def gini_index(groups, classes):
 
     Returns: a float point number representing the Gini index for the given split
     """
-    n_instances = float(sum([len(group) for group in groups]))
+    n_instances = sum([len(group) for group in groups])
     gini = 0.0
     for g in groups:
-        size = float(len(g))
+        size = len(g)
         if size == 0:
             continue
         score = 0.0
@@ -130,7 +130,6 @@ def split_node(node, max_depth, min_size, depth):
         return
 
     # process left child
-    #  _process_node('left', left, max_depth, min_size, depth)
     if len(left) <= min_size:
         node['left'] = to_terminal_node(left)
     else:
@@ -139,7 +138,6 @@ def split_node(node, max_depth, min_size, depth):
         split_node(node['left'], max_depth, min_size, depth + 1)
 
     # process right child
-    #  _process_node('right', right, max_depth, min_size, depth)
     if len(right) <= min_size:
         node['right'] = to_terminal_node(right)
     else:
@@ -147,27 +145,10 @@ def split_node(node, max_depth, min_size, depth):
         split_node(node['right'], max_depth, min_size, depth + 1)
 
 
-def _process_node(tag, node, max_depth, min_size, depth):
-    if len(node) <= min_size:
-        node[tag] = to_terminal_node(node)
-    else:
-        node[tag] = select_split(node)
-        split_node(node[tag], max_depth, min_size, depth + 1)
-
-
 def build_tree(train, max_depth, min_size):
     root = select_split(train)
     split_node(root, max_depth, min_size, 1)
     return root
-
-
-def print_tree(node, depth=0):
-    if isinstance(node, dict):
-        print('%s[X%d < %.3f]' % (depth * ' ', (node['index'] + 1), node['value']))
-        print_tree(node['left'], depth + 1)
-        print_tree(node['right'], depth + 1)
-    else:
-        print('%s[%s]' % (depth * ' ', node))
 
 
 def predict(node, row):
@@ -204,25 +185,16 @@ def predict(node, row):
 
 tree = build_tree(data_helper.toy_labeled_dataset, 4, 1)
 
-
-
-print("-"  * len("Testing"))
+print("-" * len("Testing"))
 print("Testing")
-print("-"  * len("Testing"))
+print("-" * len("Testing"))
 
 stump = {'index': 0, 'right': 1, 'value': 6.642287351, 'left': 0}
 print("Mock tree:")
 pp.pprint(stump)
 print("\n\tprediction: {}".format(predict(stump, [2.771244718, 1.784783929, 0])))
 
-
-
 print("Trained tree:")
 pp.pprint(tree)
 print("\n\tprediction: {}".format(predict(tree, [2.771244718, 1.784783929, 0])))
 
-# print("\n")
-# print("-"  * len("Simplified"))
-# print("Simplified")
-# print("-"  * len("Simplified"))
-# print_tree(tree)
