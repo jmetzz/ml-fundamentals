@@ -1,7 +1,8 @@
 import pprint as pp
 import heapq
-import python.data_helper as dh
-import python.distance as distance
+from utils import data_helper as dh
+# import common.distance as distance
+from scipy.spatial import distance
 
 
 class Hierarchical_Clustering:

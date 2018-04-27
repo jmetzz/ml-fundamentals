@@ -20,7 +20,6 @@ binary scenario and log with base 2.
 import fileinput
 import string
 from math import log
-from python import data_helper as dh
 
 
 def _identity(value): return value

@@ -35,7 +35,8 @@
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
-
+# General python
+__pycache__/
 
 
 

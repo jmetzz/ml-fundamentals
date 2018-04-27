@@ -1,5 +1,4 @@
 import pprint as pp
-import random
 
 import python.data_helper as data_helper
 import python.distance as distance
