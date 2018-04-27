@@ -4,6 +4,8 @@ import random
 import python.data_helper as data_helper
 import python.distance as distance
 
+import random
+
 """Given the inputs x1,x2,x3,…,xn and value of K
 
     Step 1 - Pick K random points as cluster centers called centroids.

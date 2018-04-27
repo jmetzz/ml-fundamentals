@@ -1,4 +1,4 @@
-from python import evaluation
+# from python import evaluation
 from collections import Counter
 import pprint as pp
 
@@ -79,7 +79,6 @@ def train(data):
     for l in labels:
         subset_l = [e for e in data if e[label_idx] == l]
         # print(subset_l)
-        subset_size = len(subset_l)
 
         # capture all occurrences of feature values in this subset
         # keep them per class label and feature
@@ -140,6 +139,14 @@ def remove_labels(input_data):
     return [d[:-1] for d in input_data]
 
 
+def accuracy(test_set, predictions):
+    correct = 0
+    for x in range(len(test_set)):
+        if test_set[x][-1] == predictions[x]:
+            correct += 1
+    return (correct / float(len(test_set))) * 100.0
+
+
 def main():
     train_data = [['Sunny', 'Hot', 'High', 'Weak', 'No'],
                   ['Sunny', 'Hot', 'High', 'Strong', 'No'],
@@ -167,8 +174,8 @@ def main():
     print(" ------- Prediction result: -------")
     pp.pprint(prediction)  # debug print
 
-    accuracy = evaluation.accuracy(test_data, prediction)
-    print('Accuracy is {0:.2f}'.format(accuracy))
+    acc = accuracy(test_data, prediction)
+    print('Accuracy is {0:.2f}'.format(acc))
 
 
 if __name__ == '__main__':

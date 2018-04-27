@@ -14,7 +14,7 @@ class Hierarchical_Clustering:
 
     def clusterize(self):
         current_clusters = self._initialize_clusters()
-        heap = self._build_priority_queue()
+        heap = self._build_priority_queue() # pairwise distance based in the form ([dist, [[i], [j]])
         old_clusters = []
         while len(current_clusters) > self.k:
             candidate_cluster = heapq.heappop(heap)

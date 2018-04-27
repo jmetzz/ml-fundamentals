@@ -58,7 +58,7 @@ def split_on_attribute(index, value, dataset):
 
 
 def get_class_values(dataset):
-    return list(set(row[-1] for row in dataset))
+    return list(set([row[-1] for row in dataset]))
 
 
 def select_split(dataset):
@@ -183,18 +183,22 @@ def predict(node, row):
 # best_split = select_split(dataset)
 # print('Split: [X%d < %.3f]' % ((best_split['index']+1), best_split['value']))
 
-tree = build_tree(data_helper.toy_labeled_dataset, 4, 1)
-
 print("-" * len("Testing"))
 print("Testing")
 print("-" * len("Testing"))
 
+
 stump = {'index': 0, 'right': 1, 'value': 6.642287351, 'left': 0}
 print("Mock tree:")
 pp.pprint(stump)
-print("\n\tprediction: {}".format(predict(stump, [2.771244718, 1.784783929, 0])))
+# print("\n\tprediction: {}".format(predict(stump, [2.771244718, 1.784783929, 0])))
 
-print("Trained tree:")
+# print("\nTrained tree:")
+# tree = build_tree(data_helper.toy_labeled_dataset, 4, 1)
+# print("\n\tprediction: {}".format(predict(tree, [2.771244718, 1.784783929, 0])))
+
+tree = build_tree(data_helper.load_dataset("../dataset/iris.data"), 4, 1)
 pp.pprint(tree)
-print("\n\tprediction: {}".format(predict(tree, [2.771244718, 1.784783929, 0])))
+
+print("\n\tprediction: {}".format(predict(tree, [6.2, 3.4, 5.4, 2.3, 0])))
 

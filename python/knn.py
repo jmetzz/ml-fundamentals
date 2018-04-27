@@ -6,9 +6,9 @@ import operator
 
 def find_neighbors(training_set, test_instance, k):
     distances = []
-    length = len(test_instance) - 1
+    dimension = len(test_instance) - 1
     for x in range(len(training_set)):
-        dist = distance.euclidean(test_instance, training_set[x], length)
+        dist = distance.euclidean(test_instance, training_set[x], dimension)
         distances.append((training_set[x], dist))
     distances.sort(key=operator.itemgetter(1))
     neighbors = []
