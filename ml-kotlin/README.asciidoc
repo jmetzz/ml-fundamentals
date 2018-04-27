@@ -1,0 +1,21 @@
+
+== ml-kotlin
+
+This module is part of ml-fundamentals repository, containing examples on how to implement
+some of the most used and fundamental machine learning algorithm.
+
+In this module you will find Kotlin implementation of these algorithms.
+
+IMPORTANT: This project is developed as a _educational_ resource and is _work in progress_ project.
+
+WARNING: Algorithm implementation's might be added, modified and/or removed at my will and at any moment.
+
+
+
+== Copyright and Licensing
+
+Copyright (C) 2018 Jean Metz.
+Free use of this software is granted under the terms of the MIT License.
+
+See the image:https://img.shields.io/badge/License-MIT-yellow.svg[link="https://opensource.org/licenses/MIT"] file for details.
+
