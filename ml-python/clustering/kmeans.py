@@ -5,7 +5,10 @@ import python.distance as distance
 
 import random
 
-"""Given the inputs x1,x2,x3,…,xn and value of K
+"""K-means is often referred to as Lloyd’s algorithm. In basic terms, the algorithm has three steps. The first step chooses the initial centroids, with the most basic method being to choose k samples from the dataset X. After initialization, K-means consists of looping between the two other steps. The first step assigns each sample to its nearest centroid. The second step creates new centroids by taking the mean value of all of the samples assigned to each previous centroid. The difference between the old and the new centroids are computed and the algorithm repeats these last two steps until this value is less than a threshold. In other words, it repeats until the centroids do not move significantly.
+    Given enough time, K-means will always converge, however this may be to a local minimum. This is highly dependent on the initialization of the centroids. As a result, the computation is often done several times, with different initializations of the centroids.
+    
+    Given the inputs x1,x2,x3,…,xn and value of K
 
     Step 1 - Pick K random points as cluster centers called centroids.
     Step 2 - Assign each xi_i to nearest cluster by calculating its distance to each centroid.
@@ -41,6 +44,10 @@ def find_clusters(data, centroids, function_dist=distance.euclidean):
 
 
 def mean(points):
+    # TODO - Improvements on readability and performance:
+    # by using vectorization and matrix multiplication formula, we have:
+    # [\mathbf{1}^T\mathbf{M}]_j= \sum_i \mathbf{1}_i \mathbf{M}_{i,j} =\sum_i \mathbf{M}_{i,j}.
+    # Hence, the column-wise sum of \mathbf{M} is \mathbf{1}^T\mathbf{M}.
     ncols = len(points[0])
     m = [0] * ncols
     for col in range(ncols):
