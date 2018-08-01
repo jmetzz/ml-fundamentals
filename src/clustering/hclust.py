@@ -5,7 +5,7 @@ from utils import data_helper as dh
 from scipy.spatial import distance
 
 
-class Hierarchical_Clustering:
+class HClustering:
     def __init__(self, data, k):
         self.k = k
         self.data = data
@@ -125,7 +125,7 @@ class Hierarchical_Clustering:
 
 
 def main(data, k):
-    hc = Hierarchical_Clustering(data, k)
+    hc = HClustering(data, k)
     clusters = hc.clusterize()
     # cluster_labels = clusters.values()
     for c in clusters.values():
