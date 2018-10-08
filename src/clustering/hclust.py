@@ -15,7 +15,7 @@ class HClustering:
 
     def clusterize(self):
         current_clusters = self._initialize_clusters()
-        heap = self._build_priority_queue() # pairwise distance based in the form ([dist, [[i], [j]])
+        heap = self._build_priority_queue()  # pairwise distance based in the form ([dist, [[i], [j]])
         old_clusters = []
         while len(current_clusters) > self.k:
             candidate_cluster = heapq.heappop(heap)
@@ -68,7 +68,8 @@ class HClustering:
         # only for the upper triangular matrix
         for i in range(self.size - 1):
             for j in range(i + 1, self.size):
-                dist = distance.euclidean(self.data[i], self.data[j], self.dimension)
+                dist = distance.euclidean(self.data[i], self.data[j],
+                                          self.dimension)
                 ## duplicate dist, need to be remove, and there is no difference to use tuple only
                 ## leave second dist here is to take up a position for tie selection
                 ## result.append((dist, [dist, [[i], [j]]]))
@@ -77,7 +78,8 @@ class HClustering:
                 result.append(([dist, [[i], [j]]]))
         return result
 
-    def _compute_centroid_two_clusters(self, current_clusters, data_points_index):
+    def _compute_centroid_two_clusters(self, current_clusters,
+        data_points_index):
         size = len(data_points_index)
         dim = self.dimension
         centroid = [0.0] * dim
@@ -112,15 +114,18 @@ class HClustering:
 
     def _add_heap_entry(self, heap, new_cluster, current_clusters):
         for existing_cluster in current_clusters.values():
-            dist = distance.euclidean(existing_cluster["centroid"], new_cluster["centroid"], self.dimension)
-            new_entry = self._create_heap_entry(existing_cluster, new_cluster, dist)
+            dist = distance.euclidean(existing_cluster["centroid"],
+                                      new_cluster["centroid"], self.dimension)
+            new_entry = self._create_heap_entry(existing_cluster, new_cluster,
+                                                dist)
             heapq.heappush(heap, new_entry)
             # heapq.heappush(heap, (dist, new_entry))
 
     def _create_heap_entry(self, existing_cluster, new_cluster, dist):
         heap_entry = []
         heap_entry.append(dist)
-        heap_entry.append([new_cluster["elements"], existing_cluster["elements"]])
+        heap_entry.append(
+            [new_cluster["elements"], existing_cluster["elements"]])
         return heap_entry
 
 
