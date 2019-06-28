@@ -1,7 +1,7 @@
-from python import data_helper
-from python import distance
-from python import evaluation
 import operator
+
+from common import distance, evaluation
+from utils import data_helper
 
 
 def find_neighbors(training_set, test_instance, k):
@@ -36,17 +36,13 @@ def main():
 
     # prepare data
     training_set, test_set = data_helper.load_train_test_datasets(dataset_path, split)
-    # print('Train set: ' + repr(len(training_set)))
-    # print('Test set: ' + repr(len(test_set)))
 
     # generate predictions
     predictions = []
-    # print(' Predicted \t\t| Actual\n')
 
     for x in range(len(test_set)):
         neighbors = find_neighbors(training_set, test_set[x], k)
         predictions.append(classify(neighbors))
-        # print('> {} \t| {}'.format(repr(predictions[-1]), repr(test_set[x][-1])))
 
     accuracy = evaluation.accuracy(test_set, predictions)
     print('Accuracy is {0:.2f}'.format(accuracy))

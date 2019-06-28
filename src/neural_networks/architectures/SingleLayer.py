@@ -1,11 +1,11 @@
-from neural_networks.function.activation import step
-from neural_networks.base.perceptron import Perceptron
+from neural_networks.base.activations import step
+from neural_networks.base.neurons import Neuron
 
 
 class SingleLayer:
     def __init__(self, bias, dimension, epochs=50, learning_rate=0.001,
             activation_function=step):
-        self.neuron = Perceptron(activation_function)
+        self.neuron = Neuron(activation_function)
         self.bias = bias
         self.dimension = dimension
         self.eta = learning_rate

@@ -1,8 +1,8 @@
 
 # test predictions
-from neural_networks.function.activation import sigmoid
-from neural_networks.base.perceptron import Perceptron
-from neural_networks.SingleLayer import SingleLayer
+from neural_networks.architectures.SingleLayer import SingleLayer
+from neural_networks.base.activations import sigmoid
+from neural_networks.base.neurons import PerceptronNeuron
 
 dataset = [[2.7810836, 2.550537003, 0],
            [1.465489372, 2.362125076, 0],
@@ -17,7 +17,7 @@ dataset = [[2.7810836, 2.550537003, 0],
 
 
 def main():
-    neuron = Perceptron()
+    neuron = PerceptronNeuron()
     # The values of bias and weights are typically set randomly and then updated using gradient descent
     w = [-0.1, 0.20653640140000007, -0.23418117710000003]
     for row in dataset:

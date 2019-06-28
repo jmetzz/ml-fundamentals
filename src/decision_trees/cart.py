@@ -1,5 +1,6 @@
 import pprint as pp
-from python import data_helper
+
+from utils import data_helper
 
 
 def gini_index(groups, classes):
